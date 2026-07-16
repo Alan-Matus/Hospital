@@ -1,5 +1,8 @@
 package Vista;
-
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
 public class Principal extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Principal.class.getName());
@@ -7,8 +10,52 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         initComponents();
         this.setLocationRelativeTo(null);
+        aplicarDisenoModerno();
     }
 
+    private void aplicarDisenoModerno() {
+        // 1. Colores de la paleta clínica moderna
+        Color colorFondo = new Color(244, 246, 249);      // Gris azulado muy limpio
+        Color azulPrincipal = new Color(0, 123, 255);    // Azul médico para botones de acción
+        Color grisBotonSecundario = new Color(108, 117, 125); // Gris moderno para el botón Salir
+        Color azulOscuroTexto = new Color(15, 44, 89);     // Azul marino para el título principal
+        Color grisTextoSecundario = new Color(100, 110, 120); // Gris intermedio para subtítulos
+        
+        // 2. Tipografías modernas
+        Font fuenteTitulo = new Font("Segoe UI", Font.BOLD, 26);
+        Font fuenteSubtitulo = new Font("Segoe UI", Font.PLAIN, 14);
+        Font fuenteBotones = new Font("Segoe UI", Font.BOLD, 13);
+        
+        // 3. Aplicar fondo a la ventana principal
+        this.getContentPane().setBackground(colorFondo);
+        
+        // 4. Estilizar Etiquetas de Texto (Labels)
+        jLabel1.setFont(fuenteTitulo);
+        jLabel1.setForeground(azulOscuroTexto);
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        
+        jLabel2.setFont(fuenteSubtitulo);
+        jLabel2.setForeground(grisTextoSecundario);
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        
+        // 5. Estilizar los Botones Principales (Arreglo para optimizar código)
+        JButton[] botonesPrincipales = {btnPaciente, btnMedico, btnArchivo};
+        for (JButton btn : botonesPrincipales) {
+            btn.setBackground(azulPrincipal);
+            btn.setForeground(Color.WHITE);
+            btn.setFont(fuenteBotones);
+            btn.setFocusPainted(false);
+            // Crea un borde interno (padding) para que los botones se vean más altos y robustos
+            btn.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
+        }
+        
+        // 6. Estilizar el Botón de Salir (Acción secundaria)
+        btnSalir.setBackground(grisBotonSecundario);
+        btnSalir.setForeground(Color.WHITE);
+        btnSalir.setFont(fuenteBotones);
+        btnSalir.setFocusPainted(false);
+        btnSalir.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -106,6 +153,12 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     public static void main(String args[]) {
+        try {
+            // Reemplazamos Nimbus por el diseño del Sistema Operativo Nativo
+            javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());
+        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+            logger.log(java.util.logging.Level.SEVERE, null, ex);
+        }
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
