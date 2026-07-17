@@ -14,7 +14,7 @@ public class RegistroPaciente extends javax.swing.JFrame {
     public RegistroPaciente() {
         initComponents(); 
         this.setLocationRelativeTo(null);
-        
+        configurarFechaHoraAutomatica();
         // Llamada corregida con los nombres exactos:
         Paciente.inicializarFormulario(txtIdPaciente, txtNombre, txtApellidoP, txtApellidoM, 
             txtPeso, txtAltura, txtEdad, txtTipoPaciente, 
@@ -27,6 +27,34 @@ public class RegistroPaciente extends javax.swing.JFrame {
     Validador.aplicarSoloLetras(txtApellidoM);
     
     aplicarDisenoFormulario();
+    }
+    
+        private void configurarFechaHoraAutomatica() {
+        java.util.Calendar ahora = java.util.Calendar.getInstance();
+        int horaActual = ahora.get(java.util.Calendar.HOUR_OF_DAY);
+        int minutoActual = ahora.get(java.util.Calendar.MINUTE);
+        java.util.Date fechaActual = ahora.getTime();
+
+        jdcEntrada.setDate(fechaActual);
+        jdcEntrada.setEnabled(false); 
+
+        jspnHora.setValue(horaActual); 
+        jspnHora.setEnabled(false);
+
+        jspnMinuto.setModel(new javax.swing.SpinnerNumberModel(minutoActual, 0, 59, 1));
+        jspnMinuto.setValue(minutoActual);
+        jspnMinuto.setEnabled(false);
+
+        jdcFechaSalida.setDate(fechaActual);
+        jdcFechaSalida.setEnabled(false);
+
+        spnHora.setModel(new javax.swing.SpinnerNumberModel(horaActual, 0, 23, 1));
+        spnHora.setValue(horaActual);
+        spnHora.setEnabled(false);
+
+        spnMinuto.setModel(new javax.swing.SpinnerNumberModel(minutoActual, 0, 59, 1));
+        spnMinuto.setValue(minutoActual);
+        spnMinuto.setEnabled(false);
     }
     
     private void aplicarDisenoFormulario() {
