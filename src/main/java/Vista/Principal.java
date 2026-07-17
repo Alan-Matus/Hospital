@@ -1,8 +1,12 @@
 package Vista;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JPanel;
 public class Principal extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Principal.class.getName());
@@ -14,6 +18,7 @@ public class Principal extends javax.swing.JFrame {
     }
 
     private void aplicarDisenoModerno() {
+         this.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
         // 1. Colores de la paleta clínica moderna
         Color colorFondo = new Color(244, 246, 249);      // Gris azulado muy limpio
         Color azulPrincipal = new Color(0, 123, 255);    // Azul médico para botones de acción
@@ -55,6 +60,53 @@ public class Principal extends javax.swing.JFrame {
         btnSalir.setFont(fuenteBotones);
         btnSalir.setFocusPainted(false);
         btnSalir.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
+        
+        // Organizar botones dentro del panel redondeado
+        roundedPanel1.removeAll(); 
+        roundedPanel1.setLayout(new GridBagLayout());
+        
+        GridBagConstraints gbcPanel = new GridBagConstraints();
+        gbcPanel.insets = new Insets(10, 40, 10, 40); 
+        gbcPanel.fill = GridBagConstraints.HORIZONTAL; // Ancho uniforme para todos los botones
+        gbcPanel.gridx = 0;
+        
+        gbcPanel.gridy = 0; roundedPanel1.add(btnPaciente, gbcPanel);
+        gbcPanel.gridy = 1; roundedPanel1.add(btnMedico, gbcPanel);
+        gbcPanel.gridy = 2; roundedPanel1.add(btnArchivo, gbcPanel);
+        
+        gbcPanel.insets = new Insets(20, 40, 20, 40); // Más separación para el botón salir
+        gbcPanel.gridy = 3; roundedPanel1.add(btnSalir, gbcPanel);
+
+        // Crear contenedor intermedio para centrar títulos y panel juntos
+        JPanel contenedorCentral = new JPanel(new GridBagLayout());
+        contenedorCentral.setBackground(colorFondo);
+        
+        GridBagConstraints gbcCentro = new GridBagConstraints();
+        gbcCentro.gridx = 0;
+        gbcCentro.fill = GridBagConstraints.HORIZONTAL;
+        
+        gbcCentro.insets = new Insets(0, 0, 5, 0);
+        gbcCentro.gridy = 0; contenedorCentral.add(jLabel1, gbcCentro);
+        
+        gbcCentro.insets = new Insets(0, 0, 25, 0);
+        gbcCentro.gridy = 1; contenedorCentral.add(jLabel2, gbcCentro);
+        
+        gbcCentro.insets = new Insets(0, 0, 0, 0);
+        gbcCentro.fill = GridBagConstraints.NONE; 
+        gbcCentro.gridy = 2; contenedorCentral.add(roundedPanel1, gbcCentro);
+        
+        // Aplicar centrado absoluto en el Frame principal
+        this.getContentPane().setLayout(new GridBagLayout());
+        GridBagConstraints gbcVentana = new GridBagConstraints();
+        gbcVentana.gridx = 0; 
+        gbcVentana.gridy = 0;
+        gbcVentana.anchor = GridBagConstraints.CENTER; // Anclar al centro de la pantalla
+        
+        this.getContentPane().add(contenedorCentral, gbcVentana);
+        
+        // Actualizar interfaz
+        this.revalidate();
+        this.repaint();
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

@@ -30,6 +30,7 @@ public class RegistroPaciente extends javax.swing.JFrame {
     }
     
     private void aplicarDisenoFormulario() {
+          this.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
         // 1. Paleta de colores clínicos modernos
         Color colorFondoPaneles = new Color(248, 249, 250);   // Blanco/Gris muy claro
         Color azulPrincipal = new Color(0, 123, 255);       // Azul institucional médico
@@ -96,6 +97,46 @@ public class RegistroPaciente extends javax.swing.JFrame {
         jTable1.setSelectionBackground(new Color(230, 242, 255)); // Azul traslúcido al seleccionar
         jTable1.setSelectionForeground(Color.BLACK);
         jScrollPane5.setBorder(BorderFactory.createLineBorder(colorBordeSuave, 1));
+        jPanel4.removeAll();
+        jPanel4.setLayout(new java.awt.GridBagLayout());
+        java.awt.GridBagConstraints gbc4 = new java.awt.GridBagConstraints();
+        gbc4.insets = new java.awt.Insets(10, 15, 10, 15);
+        
+        txtBuscar.setPreferredSize(new java.awt.Dimension(250, 30));
+        
+        // Fila 0: Barra superior de búsqueda integrada
+        gbc4.gridy = 0; gbc4.gridx = 0;
+        gbc4.weightx = 1.0; gbc4.weighty = 0.0;
+        gbc4.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        
+        roundedPanel1.removeAll();
+        roundedPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 15, 8));
+        roundedPanel1.add(new javax.swing.JLabel("Buscar Paciente (ID/Nombre):"));
+        roundedPanel1.add(txtBuscar);
+        roundedPanel1.add(btnBuscar);
+        roundedPanel1.add(btnRegresar);
+        jPanel4.add(roundedPanel1, gbc4);
+        
+        // Fila 1: Tabla expandible
+        gbc4.gridy = 1;
+        gbc4.weighty = 1.0;
+        gbc4.fill = java.awt.GridBagConstraints.BOTH;
+        jPanel4.add(jScrollPane5, gbc4);
+        
+        // --- ACOPLAMIENTO CENTRALIZADO DEFINITIVO DEL CONTENTPANE ---
+        this.getContentPane().setLayout(new java.awt.GridBagLayout());
+        java.awt.GridBagConstraints gbcVentana = new java.awt.GridBagConstraints();
+        gbcVentana.gridx = 0; gbcVentana.gridy = 0;
+        gbcVentana.weightx = 1.0; gbcVentana.weighty = 1.0;
+        gbcVentana.fill = java.awt.GridBagConstraints.BOTH;
+        gbcVentana.insets = new java.awt.Insets(15, 15, 15, 15);
+        
+        // Insertar el JTabbedPane directo y limpio en la ventana
+        this.getContentPane().add(jTabbedPane1, gbcVentana);
+        
+        // Refrescar y pintar los contenedores recalculados
+        this.revalidate();
+        this.repaint();
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -241,8 +282,8 @@ public class RegistroPaciente extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(txtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
+                                        .addComponent(txtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(txtAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(31, 31, 31)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -269,16 +310,16 @@ public class RegistroPaciente extends javax.swing.JFrame {
                                         .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(txtTipoPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jspnHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(38, 38, 38)
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jspnHora, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
                                         .addComponent(jspnMinuto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(46, 46, 46)
-                                        .addComponent(jdcEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(95, 95, 95))))
+                                        .addComponent(jdcEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(253, 253, 253)
                         .addComponent(roundedPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(685, Short.MAX_VALUE))
+                .addContainerGap(720, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -294,7 +335,7 @@ public class RegistroPaciente extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jdcFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 28, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(cbTipoSangre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -307,7 +348,7 @@ public class RegistroPaciente extends javax.swing.JFrame {
                             .addComponent(jcbGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtAltura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                         .addComponent(jLabel1)))
                 .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

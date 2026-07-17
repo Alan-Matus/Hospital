@@ -28,7 +28,12 @@ public class RegistrarMedico extends javax.swing.JFrame {
         Validador.aplicarSoloNumerosEnteros(txtCedula);
         Validador.aplicarSoloNumerosEnteros(txtTelefono);
         
+        Medic();
         // Nota: txtCorreo y txtHospital quedan libres para permitir caracteres alfanuméricos (@, números, letras)
+    }
+    
+    private void Medic(){
+        this.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
     }
 
 @SuppressWarnings("unchecked")

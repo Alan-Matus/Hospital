@@ -79,10 +79,10 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txtNombre" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="txtPeso" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="txtNombre" min="-2" pref="220" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="txtPeso" min="-2" pref="80" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="txtAltura" min="-2" pref="109" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -118,14 +118,14 @@
                                           </Group>
                                           <Component id="txtTipoPaciente" min="-2" pref="106" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jspnHora" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                              <Component id="jspnHora" min="-2" pref="74" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="jspnMinuto" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                                               <Component id="jdcEntrada" min="-2" pref="351" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -134,7 +134,7 @@
                               <Component id="roundedPanel4" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="685" max="32767" attributes="0"/>
+                      <EmptySpace pref="720" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -154,7 +154,7 @@
                               <Component id="jdcFechaNacimiento" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <EmptySpace min="0" pref="28" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="cbTipoSangre" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -170,7 +170,7 @@
                                   <Component id="txtPeso" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtAltura" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="27" max="32767" attributes="0"/>
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>

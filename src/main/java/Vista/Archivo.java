@@ -7,8 +7,84 @@ public class Archivo extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         
+        Arch();
     }
-
+private void Arch() {
+    this.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
+        // Establecer un tamaño mínimo inicial seguro para evitar colapsos visuales
+        this.setMinimumSize(new java.awt.Dimension(850, 600));
+        
+        // --- 1. RE-ESTRUCTURAR EL CONTENEDOR INTERNO (roundedPanel1) ---
+        roundedPanel1.removeAll();
+        roundedPanel1.setLayout(new java.awt.GridBagLayout());
+        
+        java.awt.GridBagConstraints gbc = new java.awt.GridBagConstraints();
+        gbc.insets = new java.awt.Insets(8, 10, 8, 10);
+        gbc.fill = java.awt.GridBagConstraints.NONE;
+        
+        // Panel superior para agrupar los componentes de filtrado y búsqueda en una sola línea
+        javax.swing.JPanel panelFiltros = new javax.swing.JPanel(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 10, 0));
+        panelFiltros.setOpaque(false); // Mantener el fondo blanco del roundedPanel1
+        
+        // Forzar dimensiones controladas para que no se deformen los inputs
+        jComboBox1.setPreferredSize(new java.awt.Dimension(150, 25));
+        jTextField1.setPreferredSize(new java.awt.Dimension(150, 25));
+        
+        panelFiltros.add(jLabel1);
+        panelFiltros.add(jComboBox1);
+        panelFiltros.add(jLabel2);
+        panelFiltros.add(jTextField1);
+        panelFiltros.add(btnBuscar);
+        
+        // Insertar Fila 0: Panel de filtros superior
+        gbc.gridx = 0; gbc.gridy = 0; gbc.gridwidth = 1;
+        gbc.weightx = 1.0; gbc.weighty = 0.0;
+        gbc.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gbc.anchor = java.awt.GridBagConstraints.WEST;
+        gbc.insets = new java.awt.Insets(20, 20, 10, 20);
+        roundedPanel1.add(panelFiltros, gbc);
+        
+        // Panel intermedio para alinear los botones de acción secundarios
+        javax.swing.JPanel panelBotonesAccion = new javax.swing.JPanel(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 10, 0));
+        panelBotonesAccion.setOpaque(false);
+        panelBotonesAccion.add(btnModificar);
+        panelBotonesAccion.add(btnEliminar);
+        panelBotonesAccion.add(btnRegresar);
+        
+        // Insertar Fila 1: Panel de botones secundarios
+        gbc.gridy = 1;
+        gbc.insets = new java.awt.Insets(5, 20, 10, 20);
+        roundedPanel1.add(panelBotonesAccion, gbc);
+        
+        // Insertar Fila 2: La Tabla dinámica con su respectivo ScrollPane
+        gbc.gridy = 2;
+        gbc.weighty = 1.0; // Permite que la tabla aproveche el crecimiento vertical disponible
+        gbc.fill = java.awt.GridBagConstraints.BOTH;
+        gbc.insets = new java.awt.Insets(5, 20, 20, 20);
+        roundedPanel1.add(jScrollPane1, gbc);
+        
+        // --- 2. ACOPLAR TODO EL DISEÑO AL JFRAME DE MANERA CENTRADA Y ELÁSTICA ---
+        jPanel1.removeAll();
+        jPanel1.setLayout(new java.awt.GridBagLayout());
+        
+        java.awt.GridBagConstraints gbcPanel1 = new java.awt.GridBagConstraints();
+        gbcPanel1.gridx = 0; gbcPanel1.gridy = 0;
+        gbcPanel1.weightx = 1.0; gbcPanel1.weighty = 1.0;
+        gbcPanel1.fill = java.awt.GridBagConstraints.BOTH; // El panel se amolda al tamaño de la ventana
+        gbcPanel1.insets = new java.awt.Insets(25, 25, 25, 25);
+        jPanel1.add(roundedPanel1, gbcPanel1);
+        
+        this.getContentPane().setLayout(new java.awt.GridBagLayout());
+        java.awt.GridBagConstraints gbcVentana = new java.awt.GridBagConstraints();
+        gbcVentana.gridx = 0; gbcVentana.gridy = 0;
+        gbcVentana.weightx = 1.0; gbcVentana.weighty = 1.0;
+        gbcVentana.fill = java.awt.GridBagConstraints.BOTH;
+        this.getContentPane().add(jPanel1, gbcVentana);
+        
+        // Actualizar la interfaz gráfica
+        this.revalidate();
+        this.repaint();
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
